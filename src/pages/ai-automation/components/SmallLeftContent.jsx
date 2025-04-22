@@ -9,7 +9,7 @@ const Texture = styled.h1`
     background-position: 50%;
     background-repeat: repeat;
     -webkit-text-fill-color: transparent;
-    background-image: url("/backs/heading-texture_1heading-texture.webp");
+    background-image: url("/heading-texture_1heading-texture.webp");
     background-clip: text;
     font-size: 42px;
     font-weight: 600;
@@ -55,21 +55,21 @@ const P = styled.p`
         font-weight: 600;
     }
 `
-export default function SmallLeftContent({top, title, p, button}) {
+export default function SmallLeftContent({ top, title, p, button }) {
     return (
         <div>
-        <>
-            <Top top ={top}/>
-            <Texture className="mt-2 capitalize text-center">{title}</Texture>
-            <P className="mt-2 text-center px-4 text-pretty" dangerouslySetInnerHTML={{ __html: p }} />               
-            <div className="flex mt-4 justify-center pb-8">
-                <Link>
-                    <Div className="hover:scale-105 duration-300 transition-all">
-                        <Button className="hover:scale-105 duration-300 transition-all">{button}</Button>
-                    </Div>
-                </Link>
-            </div>
-        </>
+            <>
+                <Top top={top} />
+                <Texture className="mt-2 capitalize text-center">{title}</Texture>
+                <P className="mt-2 text-center px-4 text-pretty" dangerouslySetInnerHTML={{ __html: p }} />
+                <div className="flex mt-4 justify-center pb-8">
+                    <Link>
+                        <Div className="hover:scale-105 duration-300 transition-all">
+                            <Button className="hover:scale-105 duration-300 transition-all">{button}</Button>
+                        </Div>
+                    </Link>
+                </div>
+            </>
         </div>
     )
 }

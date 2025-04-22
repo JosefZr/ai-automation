@@ -9,7 +9,7 @@ const HeroHeading = styled.h1`
     background-position: 50%;
     background-repeat: repeat;
     -webkit-text-fill-color: transparent;
-    background-image: url("/backs/heading-texture_1heading-texture.webp");
+    background-image: url("/heading-texture_1heading-texture.webp");
     background-clip: text;
     font-size: 55px;
     font-weight: 700;
@@ -50,12 +50,12 @@ const Button = styled.button`
     }
 `
 
-export default function LeftContent2({top, title, p, button, cutted}) {
+export default function LeftContent2({ top, title, p, button, cutted }) {
     return (
-        <div className={`${cutted?"w-2/5":"w-1/2"}`}>
-            {top &&<Subtitle top ={top}/>}
-            <HeroHeading dangerouslySetInnerHTML={{ __html: title }}/>   
-            <Paragraph p={p}/>
+        <div className={`${cutted ? "w-2/5" : "w-1/2"}`}>
+            {top && <Subtitle top={top} />}
+            <HeroHeading dangerouslySetInnerHTML={{ __html: title }} />
+            <Paragraph p={p} />
             <div className="flex mt-8 ">
                 <Link>
                     <Div className="hover:scale-105 duration-300 transition-all ">
@@ -63,7 +63,7 @@ export default function LeftContent2({top, title, p, button, cutted}) {
                     </Div>
                 </Link>
             </div>
-        
+
         </div>
     )
 }

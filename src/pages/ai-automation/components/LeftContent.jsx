@@ -7,7 +7,7 @@ const HeroHeading = styled.h1`
     background-position: 50%;
     background-repeat: repeat;
     -webkit-text-fill-color: transparent;
-    background-image: url("/backs/heading-texture_1heading-texture.webp");
+    background-image: url("/heading-texture_1heading-texture.webp");
     background-clip: text;
     font-size: 80px;
     font-weight: 600;
@@ -64,22 +64,22 @@ const P = styled.p`
         line-height: 28px;
     }
 `
-export default function LeftContent({top, title, p, button, cutted}) {
+export default function LeftContent({ top, title, p, button, cutted }) {
     return (
-        <div className={`${cutted?"w-2/5":"w-1/2"}`}>
+        <div className={`${cutted ? "w-2/5" : "w-1/2"}`}>
             <div className="subtitle-container">
                 <div className="subtitle">
                     <div className="subtitle-background">
                         <h3>
-                        {top}
+                            {top}
                         </h3>
                     </div>
                 </div>
             </div>
             <HeroHeading>
-                {title}                                    
+                {title}
             </HeroHeading>
-            <P className={` mt-8  ${cutted?"max-w-[408px]":""}`} dangerouslySetInnerHTML={{ __html: p }} />
+            <P className={` mt-8  ${cutted ? "max-w-[408px]" : ""}`} dangerouslySetInnerHTML={{ __html: p }} />
             <div className="flex mt-8 ">
                 <Link>
                     <Div className="hover:scale-105 duration-300 transition-all ">
