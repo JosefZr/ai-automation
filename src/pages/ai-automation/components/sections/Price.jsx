@@ -204,7 +204,7 @@ export default function Prices() {
                                     </div>
                                 </div>
                                 <div className="lg:p-[60px] p-2 w-full border-t-[1px] border-t-[#2b3340]" style={{ position: "relative" }}>
-                                    <div className="flex justify-center w-[50%] mx-auto">
+                                    <div className="flex justify-center w-[50%] max-[700px]:w-[70%] max-[450px]:w-[95%] mx-auto">
                                         <div className="flex flex-col justify-center gap-4 my-5">
                                             <div className="flex gap-4 items-center">
                                                 <MdOutlineDone height="1rem" width="1rem" />

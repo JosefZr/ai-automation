@@ -78,6 +78,25 @@ const MenuHeader = styled.div`
   letter-spacing: 0.1em;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Text shadow for better readability on glass */
 `
+const Notification = styled.div`
+    z-index: 999;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    font-size: .88rem;
+    font-weight: 500;
+`
+const PaddingGlobal = styled.div`
+    justify-content: center;
+    align-items: center;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    display: flex;
+    position: relative;
+`
 export default function Hero() {
     const [isLeftMenuOpen, setIsLeftMenuOpen] = useState(false)
     const params = useParams()
@@ -116,6 +135,22 @@ export default function Hero() {
                 className="max-h-[100%] h-[100%] opacity-5 w-full object-cover top-0 left-0 pointer-events-none"
                 style={{ position: "absolute" }}
             />
+            {/* top bar */}
+            <Notification >
+                <PaddingGlobal className="hash-background">
+                    <div >
+                        THE PRICE OF YDN WILL BE INCREASING SOON.
+                        <Link to={"https://buildydn.com/#/sign-up"} style={{
+                            fontWeight: "bold",
+                            paddingLeft: "5px",
+                            textDecoration: "underline",
+                            transition: "opacity .2s"
+                        }}>
+                            join now
+                        </Link>
+                    </div>
+                </PaddingGlobal>
+            </Notification>
             {/* navbar */}
             <div className=" w-full pointer-events-none hidden lg:block" style={{ position: "relative" }}>
                 <nav className="text-sm">
@@ -227,7 +262,7 @@ export default function Hero() {
                                     top="Scale your dental Practice--like never before"
                                     title="Turn Cold Visitors Into Paying Patients"
                                     p="<strong>I run a clinic too. I know the chaos.</strong> <br/>
-                                        You’re mid-root canal, phones are ringing, front desk’s overwhelmed.<br/>ss
+                                        You’re mid-root canal, phones are ringing, front desk’s overwhelmed.<br/>
                                         Leads get missed. Patients wait. Some never call back.<br/>
                                         And just like that—<strong>money’s gone.</strong>"
                                     button="BOOK YOUR FREE DEMO"

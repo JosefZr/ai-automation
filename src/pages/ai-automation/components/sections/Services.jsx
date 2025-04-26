@@ -100,7 +100,7 @@ const Items = [
         title: "Professional Website",
         icon: <GiSpiderWeb />,
         p: "Fast, modern, mobile-ready.<br/> <strong className='text-white'>Built to impress. Built to convert. </strong>Because your site <i>is</i> your first impression.",
-        img: "/ai/6.jpeg",
+        video: "https://vimeo.com/1078415835",
     },
     {
         title: "AI Chat Assistant",
