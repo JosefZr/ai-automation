@@ -10,6 +10,8 @@ import SmallRightShades from "../Shades/SmallRightShades";
 import { size } from "@/lib/mediaQuerys";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { MODAL_TYPE, useModal } from "@/hooks/useModalStore";
 const Special = styled.h1`
     color: hsla(0, 0%, 100%, .21);
     font-size: 10px;
@@ -98,6 +100,7 @@ const PaddingGlobal = styled.div`
     position: relative;
 `
 export default function Hero() {
+    const { onOpen } = useModal();
     const [isLeftMenuOpen, setIsLeftMenuOpen] = useState(false)
     const params = useParams()
 
@@ -159,7 +162,7 @@ export default function Hero() {
                             <WideLeftShades />
                             <div className="border-x-[1px] border-stroke">
                                 <div className="justify-between flex w-full " style={{ position: "relative" }}>
-                                    <div className="z-40 flex justify-center items-center transition-all duration-500 false p-6 border-r-stroke border-r-[1px]" style={{ position: "relative" }}>
+                                    <div className="z-40 flex justify-center items-center transition-all duration-500 false p-2 border-r-stroke border-r-[1px]" style={{ position: "relative" }}>
                                         <div onClick={toggleMenu} className="group cursor-pointer">
                                             <div className="border-[4px] border-[#2b334079]">
                                                 <div className="border-[2px] border-[#2b3340be]">
@@ -178,14 +181,16 @@ export default function Hero() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className=" flex justify-end pointer-events-auto items-center p-6 border-l-stroke border-l-[1px]" style={{ position: "relative" }}>
-                                        <div onClick={toggleMenu} className="group cursor-pointer">
+                                    <div className=" flex justify-end pointer-events-auto items-center p-2 border-l-stroke border-l-[1px]" style={{ position: "relative" }}>
+                                        <div className="group cursor-pointer">
                                             <div className="border-[4px] border-[#2b334079]">
                                                 <div className="border-[2px] border-[#2b3340be]">
-                                                    <Link to={"https://buildydn.com/#/login"} className="group cursor-pointer text-white flex items-center gap-4 pointer-events-auto transition-all duration-300 border-stroke hover:border-[#6a6d6f] border-[1px] hover:bg-[#202326] py-1 px-3 w-auto">
+                                                    <button onClick={() => {
+                                                        onOpen(MODAL_TYPE.FORM_MODAL)
+                                                    }} className="group cursor-pointer text-white flex items-center gap-4 pointer-events-auto transition-all duration-300 border-stroke hover:border-[#6a6d6f] border-[1px] hover:bg-[#202326] py-1 px-3 w-auto">
                                                         <img src="https://www.cobratate.com/jointherealworld/login_icon.png" alt="za" className="w-[28px] h-[28px]" width={56} height={56} />
-                                                        <p className="text-sm">LOGIN</p>
-                                                    </Link>
+                                                        <p className="text-sm">FREE DEMO</p>
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -223,7 +228,7 @@ export default function Hero() {
                                     <div className="border-[2px] border-[#2b3340be]">
                                         <div className="group cursor-pointer text-white flex items-center gap-4 pointer-events-auto transition-all duration-300 border-stroke hover:border-[#6a6d6f] border-[1px] hover:bg-[#202326] py-1 px-3 w-auto">
                                             <img src="https://www.cobratate.com/jointherealworld/menu_icon.svg" alt="za" className="w-[28px] h-[28px]" width={56} height={56} />
-                                            <p className="text-sm">MENU</p>
+                                            <p className="text-sm max-[350px]:hidden">MENU</p>
                                         </div>
                                     </div>
                                 </div>
@@ -237,13 +242,17 @@ export default function Hero() {
                             </div>
                         </div>
                         <div className=" z-40 flex justify-center items-center transition-all duration-500 false p-6" style={{ position: "relative" }}>
-                            <div onClick={toggleMenu} className="group cursor-pointer">
+                            <div className="group cursor-pointer">
                                 <div className="border-[4px] border-[#2b334079]">
                                     <div className="border-[2px] border-[#2b3340be]">
-                                        <Link to={"https://buildydn.com/#/login"} target="_blank" className="group cursor-pointer text-white flex items-center gap-4 pointer-events-auto transition-all duration-300 border-stroke hover:border-[#6a6d6f] border-[1px] hover:bg-[#202326] py-1 px-3 w-auto">
-                                            <img src="https://www.cobratate.com/jointherealworld/login_icon.png" alt="za" className="w-[28px] h-[28px]" width={56} height={56} />
-                                            <p className="text-sm">LOGIN</p>
-                                        </Link>
+                                        <button onClick={() => {
+                                            console.log("open form modal"),
+                                                onOpen(MODAL_TYPE.FORM_MODAL)
+                                        }
+                                        } target="_blank" className="group cursor-pointer text-white flex items-center gap-4 pointer-events-auto transition-all duration-300 border-stroke hover:border-[#6a6d6f] border-[1px] hover:bg-[#202326] py-1 px-3 w-auto">
+                                            <img src="https://www.cobratate.com/jointherealworld/login_icon.png" alt="za" className="w-[28px] h-[28px] " width={56} height={56} />
+                                            <p className="text-sm max-[350px]:hidden">FREE DEMO</p>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
