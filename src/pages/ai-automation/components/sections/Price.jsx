@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import WideRightShades from "../Shades/WideRightShades";
 import SmallLeftShades from "../Shades/SmallLeftShades";
 import SmallRightShades from "../Shades/SmallRightShades";
+import { MODAL_TYPE, useModal } from "@/hooks/useModalStore";
 
 const Texture = styled.h1`
     background-color: white;
@@ -73,6 +74,7 @@ const Button = styled.button`
     }
 `
 export default function Prices() {
+    const { onOpen } = useModal();
     return (
         <div className="reveal-vertical" style={{ position: "relative", fontFamily: "'Funnel Display', sans-serif" }}>
             <div className="w-full border-b-[1px] border-b-[#2b3340] hidden lg:block">
@@ -151,7 +153,9 @@ export default function Prices() {
                             <div className="flex justify-center mt-2">
                                 <Link>
                                     <Div className="hover:scale-105 duration-300 transition-all">
-                                        <Button className="hover:scale-105 duration-300 transition-all">We should talk</Button>
+                                        <Button className="hover:scale-105 duration-300 transition-all" onClick={() => {
+                                            onOpen(MODAL_TYPE.FORM_MODAL);
+                                        }}>We should talk</Button>
                                     </Div>
                                 </Link>
                             </div>
@@ -228,7 +232,9 @@ export default function Prices() {
                                     <div className="flex justify-center">
                                         <Link>
                                             <Div className="hover:scale-105 duration-300 transition-all">
-                                                <Button className="hover:scale-105 duration-300 transition-all">We should talk</Button>
+                                                <Button className="hover:scale-105 duration-300 transition-all" onClick={() => {
+                                                    onOpen(MODAL_TYPE.FORM_MODAL);
+                                                }}>We should talk</Button>
                                             </Div>
                                         </Link>
                                     </div>

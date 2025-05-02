@@ -1,3 +1,4 @@
+import { MODAL_TYPE, useModal } from "@/hooks/useModalStore";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 const HeroHeading = styled.h1`
@@ -65,6 +66,7 @@ const P = styled.p`
     }
 `
 export default function LeftContent({ top, title, p, button, cutted }) {
+    const { onOpen } = useModal();
     return (
         <div className={`${cutted ? "w-2/5" : "w-1/2"}`}>
             <div className="subtitle-container">
@@ -81,9 +83,10 @@ export default function LeftContent({ top, title, p, button, cutted }) {
             </HeroHeading>
             <P className={` mt-8  ${cutted ? "max-w-[408px]" : ""}`} dangerouslySetInnerHTML={{ __html: p }} />
             <div className="flex mt-8 ">
-                <Link>
+                <Link >
                     <Div className="hover:scale-105 duration-300 transition-all ">
-                        <Button className="hover:scale-105 duration-300 transition-all">{button}</Button>
+                        <Button className="hover:scale-105 duration-300 transition-all" onClick={() =>
+                            onOpen(MODAL_TYPE.FORM_MODAL)}>{button}</Button>
                     </Div>
                 </Link>
             </div>

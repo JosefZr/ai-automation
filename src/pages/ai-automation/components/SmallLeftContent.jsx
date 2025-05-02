@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 import Top from "./Top"
+import { MODAL_TYPE, useModal } from "@/hooks/useModalStore"
 
 const Texture = styled.h1`
     margin-top: 2rem;
@@ -56,6 +57,8 @@ const P = styled.p`
     }
 `
 export default function SmallLeftContent({ top, title, p, button }) {
+    const { onOpen } = useModal();
+
     return (
         <div>
             <>
@@ -64,7 +67,8 @@ export default function SmallLeftContent({ top, title, p, button }) {
                 <P className="mt-2 text-center px-4 text-pretty" dangerouslySetInnerHTML={{ __html: p }} />
                 <div className="flex mt-4 justify-center pb-8">
                     <Link>
-                        <Div className="hover:scale-105 duration-300 transition-all">
+                        <Div className="hover:scale-105 duration-300 transition-all" onClick={() =>
+                            onOpen(MODAL_TYPE.FORM_MODAL)}>
                             <Button className="hover:scale-105 duration-300 transition-all">{button}</Button>
                         </Div>
                     </Link>

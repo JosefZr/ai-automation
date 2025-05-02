@@ -4,6 +4,7 @@ import WideRightShades from "../Shades/WideRightShades";
 import SmallLeftContent from "../SmallLeftContent";
 import Subtitle from "../Subtitle";
 import { Link } from "react-router-dom";
+import { MODAL_TYPE, useModal } from "@/hooks/useModalStore";
 const Special = styled.h1`
     color: hsla(0, 0%, 100%, .21);
     font-size: 15px;
@@ -75,41 +76,44 @@ const Button = styled.button`
     }
 `
 export default function Questions() {
-  return (
-    <div  style={{position:"relative",fontFamily:"'Funnel Display', sans-serif"}}>
-        <div className="w-full border-b-[1px] border-b-[#2b3340] block">
-            <article className="w-full max-w-[1428px] mx-auto px-[15px] lg:px-[41px] lg:border-x-[1px] lg:border-[#2b3340] " style={{position:"relative"}}>
-                <WideLeftShades/>
-                <div className="border-x-[1px] border-[#2b3340]">
-                    <div className="lg:p-[30px] p-2 w-full" style={{position:"relative"}}>
-                        <div className="mt-5">
+    const { onOpen } = useModal();
+    return (
+        <div style={{ position: "relative", fontFamily: "'Funnel Display', sans-serif" }}>
+            <div className="w-full border-b-[1px] border-b-[#2b3340] block">
+                <article className="w-full max-w-[1428px] mx-auto px-[15px] lg:px-[41px] lg:border-x-[1px] lg:border-[#2b3340] " style={{ position: "relative" }}>
+                    <WideLeftShades />
+                    <div className="border-x-[1px] border-[#2b3340]">
+                        <div className="lg:p-[30px] p-2 w-full" style={{ position: "relative" }}>
+                            <div className="mt-5">
                                 <div className="flex flex-col items-center justify-center">
                                     <Subtitle top="Let’s Get You Set Up" />
                                 </div>
                                 <HeroHeading >
                                     Let’s Automate Your Clinic
-                                </HeroHeading>   
-                                    <P className="mt-4 max-w-[550px] text-center mx-auto" >
-                                        Takes 2 minutes.<br/>
-                                            No contracts. No tech headaches. No BS.
-                                            <br/><br/>
-                                        <strong>Just a smart systems that turns clicks into patients—on autopilot.</strong>
-                                    </P>
+                                </HeroHeading>
+                                <P className="mt-4 max-w-[550px] text-center mx-auto" >
+                                    Takes 2 minutes.<br />
+                                    No contracts. No tech headaches. No BS.
+                                    <br /><br />
+                                    <strong>Just a smart systems that turns clicks into patients—on autopilot.</strong>
+                                </P>
                                 <div className="flex mt-8 justify-center ">
                                     <Link>
                                         <Div className="hover:scale-105 duration-300 transition-all">
-                                            <Button className="hover:scale-105 duration-300 transition-all">BOOK YOUR FREE DEMO</Button>
-                                    </Div>
-                                </Link>
+                                            <Button className="hover:scale-105 duration-300 transition-all" onClick={() => {
+                                                onOpen(MODAL_TYPE.FORM_MODAL);
+                                            }}>BOOK YOUR FREE DEMO</Button>
+                                        </Div>
+                                    </Link>
                                 </div>
-                            <Special className="text-center ">and see it in action.
-                            No pressure. Just proof.</Special>
+                                <Special className="text-center ">and see it in action.
+                                    No pressure. Just proof.</Special>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <WideRightShades/>
-            </article>
-        </div>
+                    <WideRightShades />
+                </article>
             </div>
-  )
+        </div>
+    )
 }

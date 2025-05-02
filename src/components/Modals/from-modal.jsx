@@ -158,12 +158,12 @@ export default function FormModal() {
         console.log(data)
     };
     const SERVICES = [
-        { id: 'general', name: 'General Inquiry' },
-        { id: 'consulting', name: 'Dental Practice Consulting' },
-        { id: 'marketing', name: 'Marketing Services' },
-        { id: 'training', name: 'Staff Training' },
-        { id: 'equipment', name: 'Equipment Setup' },
-        { id: 'other', name: 'Other Service' },
+        { id: '1', name: 'Professional Website' },
+        { id: '2', name: 'AI Chat Assistant' },
+        { id: '3', name: 'AI Phone Assistant' },
+        { id: '4', name: 'Auto-Scheduling & Reminders' },
+        { id: '5', name: 'AI Receptionist (Text or Voice)' },
+        { id: '6', name: 'Client Database + Follow-Ups' },
     ];
     return (
         <Dialog open={isModalOpen} onOpenChange={onClose} >

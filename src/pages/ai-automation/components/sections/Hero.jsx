@@ -185,9 +185,10 @@ export default function Hero() {
                                         <div className="group cursor-pointer">
                                             <div className="border-[4px] border-[#2b334079]">
                                                 <div className="border-[2px] border-[#2b3340be]">
-                                                    <button onClick={() => {
+                                                    <button onClick={() =>
                                                         onOpen(MODAL_TYPE.FORM_MODAL)
-                                                    }} className="group cursor-pointer text-white flex items-center gap-4 pointer-events-auto transition-all duration-300 border-stroke hover:border-[#6a6d6f] border-[1px] hover:bg-[#202326] py-1 px-3 w-auto">
+
+                                                    } className="group cursor-pointer text-white flex items-center gap-4 pointer-events-auto transition-all duration-300 border-stroke hover:border-[#6a6d6f] border-[1px] hover:bg-[#202326] py-1 px-3 w-auto">
                                                         <img src="https://www.cobratate.com/jointherealworld/login_icon.png" alt="za" className="w-[28px] h-[28px]" width={56} height={56} />
                                                         <p className="text-sm">FREE DEMO</p>
                                                     </button>
@@ -201,7 +202,7 @@ export default function Hero() {
                         </article>
                     </div>
                 </nav>
-            </div>
+            </div >
             <Overlay $isOpen={isLeftMenuOpen} onClick={closeMenu} />
 
             <Sidebar $isOpen={isLeftMenuOpen}>
@@ -245,10 +246,9 @@ export default function Hero() {
                             <div className="group cursor-pointer">
                                 <div className="border-[4px] border-[#2b334079]">
                                     <div className="border-[2px] border-[#2b3340be]">
-                                        <button onClick={() => {
-                                            console.log("open form modal"),
-                                                onOpen(MODAL_TYPE.FORM_MODAL)
-                                        }
+                                        <button onClick={() =>
+                                            onOpen(MODAL_TYPE.FORM_MODAL)
+
                                         } target="_blank" className="group cursor-pointer text-white flex items-center gap-4 pointer-events-auto transition-all duration-300 border-stroke hover:border-[#6a6d6f] border-[1px] hover:bg-[#202326] py-1 px-3 w-auto">
                                             <img src="https://www.cobratate.com/jointherealworld/login_icon.png" alt="za" className="w-[28px] h-[28px] " width={56} height={56} />
                                             <p className="text-sm max-[350px]:hidden">FREE DEMO</p>
@@ -325,6 +325,6 @@ export default function Hero() {
                     <SmallRightShades />
                 </article>
             </div>
-        </div>
+        </div >
     )
 }
