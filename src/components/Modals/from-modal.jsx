@@ -4,6 +4,7 @@ import { Dialog, DialogContent } from "../ui/dialog"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import toast from "react-hot-toast"
+import emailjs from "@emailjs/browser"
 const Text = styled.div`
     width: 100%;
     overflow-wrap: break-word;
@@ -155,7 +156,21 @@ export default function FormModal() {
         formState: { errors },
     } = useForm();
     const onSubmit = async (data) => {
-        console.log(data)
+        try {
+            console.log("Sending data:", data);
+            const response = await emailjs.send(
+                "service_oh0ztep",
+                "template_n5tijrs",
+                data,
+                "DkWbveA2Q_euRGHHf"
+            );
+            console.log("EmailJS response:", response);
+            toast.success('Message sent successfully!');
+            setIsSent(true);
+        } catch (error) {
+            console.error('Full error:', error);
+            toast.error(`Failed: ${error.text}`);
+        }
     };
     const SERVICES = [
         { id: '1', name: 'Professional Website' },
@@ -213,6 +228,7 @@ export default function FormModal() {
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="items-center flex flex-col">
                                     <Input
+                                        name="fullName"
                                         {...register("fullName", {
                                             required: "Full Name is required"
                                         })}
@@ -236,6 +252,7 @@ export default function FormModal() {
                                                 message: "Invalid email address"
                                             }
                                         })}
+                                        name="email"
                                         placeholder="Enter Email Address *"
                                         type="email"
                                     />
@@ -250,6 +267,7 @@ export default function FormModal() {
                                         })}
                                         placeholder="company name"
                                         type="text"
+                                        name="company"
                                     />
                                     {errors.location && (
                                         <span className="text-red-500 text-sm mt-1 mb-2">
@@ -273,6 +291,7 @@ export default function FormModal() {
                                         })}
                                         placeholder="Phone Number"
                                         type="tel"
+                                        name="phone"
                                         inputMode="numeric"
                                         pattern="[0-9]*"
                                         onChange={(e) => {
@@ -287,12 +306,14 @@ export default function FormModal() {
 
                                     <TextArea
                                         {...register("question")}
+                                        name="question"
                                         placeholder="What is your most important question?"
                                     />
                                     <Input
                                         {...register("service", {
                                             required: "Please select a service"
                                         })}
+                                        name="service"
                                         as="select" // Change input to select
                                         style={{ marginTop: "18px", marginBottom: "10px" }}
                                     >
@@ -346,23 +367,15 @@ export default function FormModal() {
                                 </Text>
                             </div>
                             <div className="items-center flex flex-col">
-                                <H1>
-                                    You’ve taken the first step toward elevating your dental career and unlocking the strategies that will transform your practice and income.
-                                </H1>
+
                             </div>
-                            <div className="items-center flex flex-col">
-                                <Text>
-                                    <P>
-                                        What happens next?
-                                    </P>
-                                </Text>
-                            </div>
+
                             <div className="items-center flex flex-col">
                                 <H1>
-                                    In the coming days, we’ll review applications and send exclusive early-access invitations to <strong>selected members.</strong>
+                                    You&apos;re In. Application Submitted.
                                     <br /><br />
-                                    📬 Check your email (and spam) for updates.
-                                    you don’t want to miss this!
+                                    We will review it, and contact you asap. <br /><br />
+                                    Dr Truth
                                 </H1>
 
                             </div>
